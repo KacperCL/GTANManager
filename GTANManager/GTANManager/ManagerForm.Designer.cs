@@ -58,6 +58,7 @@
             this.playerList.FormattingEnabled = true;
             this.playerList.Location = new System.Drawing.Point(12, 25);
             this.playerList.Name = "playerList";
+            this.playerList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.playerList.Size = new System.Drawing.Size(150, 316);
             this.playerList.TabIndex = 1;
             // 
@@ -68,6 +69,7 @@
             this.resourceRunningList.FormattingEnabled = true;
             this.resourceRunningList.Location = new System.Drawing.Point(274, 25);
             this.resourceRunningList.Name = "resourceRunningList";
+            this.resourceRunningList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.resourceRunningList.Size = new System.Drawing.Size(200, 316);
             this.resourceRunningList.TabIndex = 3;
             // 
@@ -107,6 +109,7 @@
             this.resourceList.FormattingEnabled = true;
             this.resourceList.Location = new System.Drawing.Point(586, 25);
             this.resourceList.Name = "resourceList";
+            this.resourceList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.resourceList.Size = new System.Drawing.Size(200, 316);
             this.resourceList.TabIndex = 7;
             // 
@@ -178,7 +181,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(916, 1080);
-            this.MinimumSize = new System.Drawing.Size(916, 0);
+            this.MinimumSize = new System.Drawing.Size(916, 39);
             this.Name = "ManagerForm";
             this.ShowIcon = false;
             this.Text = "ManagerForm";

@@ -67,11 +67,14 @@ namespace GTANManager
         {
             if (resourceRunningList.SelectedIndex >= 0)
             {
-                var r = resourceRunningList.SelectedItem.ToString();
-                if (API.isResourceRunning(r))
+                foreach (var i in resourceRunningList.SelectedItems)
                 {
-                    API.stopResource(r);
-                    API.startResource(r);
+                    var r = i.ToString();
+                    if (API.isResourceRunning(r))
+                    {
+                        API.stopResource(r);
+                        API.startResource(r);
+                    }
                 }
             }
             UpdateResourceLists();
@@ -81,9 +84,12 @@ namespace GTANManager
         {
             if (resourceRunningList.SelectedIndex >= 0)
             {
-                var r = resourceRunningList.SelectedItem.ToString();
-                if (API.isResourceRunning(r))
-                    API.stopResource(r);
+                foreach (var i in resourceRunningList.SelectedItems)
+                {
+                    var r = i.ToString();
+                    if (API.isResourceRunning(r))
+                        API.stopResource(r);
+                }
             }
             UpdateResourceLists();
         }
@@ -92,9 +98,12 @@ namespace GTANManager
         {
             if (resourceList.SelectedIndex >= 0)
             {
-                var r = resourceList.SelectedItem.ToString();
-                if (!API.isResourceRunning(r))
-                    API.startResource(r);
+                foreach (var i in resourceList.SelectedItems)
+                {
+                    var r = i.ToString();
+                    if (!API.isResourceRunning(r))
+                        API.startResource(r);
+                }
             }
             UpdateResourceLists();
         }
@@ -103,15 +112,21 @@ namespace GTANManager
         {
             if (playerList.SelectedIndex >= 0)
             {
-                var p = playerList.SelectedItem.ToString();
-                foreach (var c in players)
+                var reason = Interaction.InputBox("Enter kick reason (1 space for no reason) :", "Kick reason", " ");
+                if (reason != "")
                 {
-                    if (p == c.socialClubName)
+                    foreach (var i in playerList.SelectedItems)
                     {
-                        var reason = Interaction.InputBox("Enter kick reason (1 space for no reason) :", "Kick reason", " ");
-                        if (reason != "")
-                            API.kickPlayer(c, reason);
-                        break;
+                        var p = i.ToString();
+
+                        foreach (var c in players)
+                        {
+                            if (p == c.socialClubName)
+                            {
+                                API.kickPlayer(c, reason);
+                                break;
+                            }
+                        }
                     }
                 }
             }
@@ -121,15 +136,20 @@ namespace GTANManager
         {
             if (playerList.SelectedIndex >= 0)
             {
-                var p = playerList.SelectedItem.ToString();
-                foreach (var c in players)
+                var reason = Interaction.InputBox("Enter ban reason (1 space for no reason) :", "Ban reason", " ");
+                if (reason != "")
                 {
-                    if (p == c.socialClubName)
+                    foreach (var i in playerList.SelectedItems)
                     {
-                        var reason = Interaction.InputBox("Enter ban reason (1 space for no reason) :", "Ban reason", " ");
-                        if (reason != "")
-                            API.banPlayer(c, reason);
-                        break;
+                        var p = i.ToString();
+                        foreach (var c in players)
+                        {
+                            if (p == c.socialClubName)
+                            {
+                                API.banPlayer(c, reason);
+                                break;
+                            }
+                        }
                     }
                 }
             }
