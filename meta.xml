@@ -1,0 +1,15 @@
+﻿<meta>
+
+  <!-- Server info -->
+  <info name="GTA:NManager" description="GTA:N Server Manager" author= "VFRZ" version="0.1" />
+
+  <!-- Server resources -->
+  <script src="ManagerForm.cs" type="server" lang="csharp" />
+  <script src="ManagerForm.Designer.cs" type="server" lang="csharp" />
+  <script src="Main.cs" type="server" lang="csharp" />
+  
+  <!-- Assemblies -->
+  <assembly ref="System.Data.dll" />
+  <assembly ref="Microsoft.VisualBasic.dll" />
+  
+</meta>
