@@ -13,7 +13,7 @@ namespace GTANManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            manager = new ManagerForm(API.getServerName(), API);
+            manager = new ManagerForm(API);
 
             new Thread(() =>
             {

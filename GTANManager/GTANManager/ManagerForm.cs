@@ -12,7 +12,7 @@ namespace GTANManager
         private API API;
         private List<Client> players;
 
-        public ManagerForm(string title, API api)
+        public ManagerForm(API api)
         {
             InitializeComponent();
 
@@ -20,10 +20,15 @@ namespace GTANManager
 
             players = new List<Client>();
 
-            Text = "GTA:N Manager : " + title;
+            UpdateTitle();
 
             UpdateResourceLists();
 
+        }
+
+        private void UpdateTitle()
+        {
+            Text = "GTA:N Manager : " + API.getServerName() + " [" + players.Count + "]";
         }
 
         private void UpdateResourceLists()
@@ -46,6 +51,7 @@ namespace GTANManager
         {
             playerList.Items.Add(client.socialClubName);
             players.Add(client);
+            UpdateTitle();
         }
 
         public void RemovePlayer(Client client)
@@ -54,6 +60,7 @@ namespace GTANManager
                 playerList.Items.Remove(client.socialClubName);
             if (players.Contains(client))
                 players.Remove(client);
+            UpdateTitle();
         }
 
         private void restartResourceButton_Click(object sender, EventArgs e)
