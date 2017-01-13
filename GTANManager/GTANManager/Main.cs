@@ -13,14 +13,19 @@ namespace GTANManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            manager = new ManagerForm(API);
+            
 
             new Thread(() =>
             {
-                Application.Run(manager);
+                while (true)
+                {
+                    manager = new ManagerForm(API);
+                    Application.Run(manager);
+                }
+
             }).Start();
 
-            
+
 
             API.onPlayerConnected += API_onPlayerConnected;
             API.onPlayerDisconnected += API_onPlayerDisconnected;
@@ -37,6 +42,6 @@ namespace GTANManager
             if (manager != null)
                 manager.AddPlayer(player);
         }
-        
+
     }
 }
