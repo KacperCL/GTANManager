@@ -11,5 +11,6 @@
   <!-- Assemblies -->
   <assembly ref="System.Data.dll" />
   <assembly ref="Microsoft.VisualBasic.dll" />
+  <assembly ref="System.Xml.dll" />
   
 </meta>
